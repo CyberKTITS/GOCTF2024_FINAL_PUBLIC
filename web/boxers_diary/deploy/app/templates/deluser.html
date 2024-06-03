@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="mb-4">Удалить пользователя</h2>
+        <form id="deleteUserForm" >
+            <div class="mb-3">
+                <label for="username" class="form-label">Имя пользователя</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Удалить пользователя</button>
+        </form>
+    </div>
+</div>
+
+<script>
+	let a = {}; let message = ''
+document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var username = document.getElementById('username').value;
+  
+    fetch('/delete_user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: username })
+    }).then(response => {
+                    return response.json(); // Предполагаем, что ответ в формате JSON
+                })
+                .then(data => {
+        		var keys = Object.keys(data);
+			let answer = ''
+	       		if (keys.length > 0) {
+	           		let firstKey = keys[0];
+				answer = data[firstKey]
+				sessionStorage.setItem(firstKey, answer);	
+				
+			}
+			else{
+				answer = sessionStorage.getItem('mess') 
+			}
+			alert('Ответ: '+ answer);
+			
+			
+                })
+                .catch(error => {
+                    alert('Что-то пошло не так: ' + error.message);
+                });
+
+});
+ 
+//fetch('/serverinf0', {
+ 
+</script>
+{% endblock %}

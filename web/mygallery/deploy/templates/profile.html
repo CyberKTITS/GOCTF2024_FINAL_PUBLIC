@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", header='X-file', author="GregorHirsh">
+    <title>Profile</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Профиль</h1>
+        <img src="static/images/cat.jpeg" alt="Example Image">    
+	{% if file_content %}
+            
+	<div>
+                <h2>Содержимое файла:</h2>
+                <pre>{{ file_content }}</pre>
+            </div>
+        {% else %}
+            <p>Пока что все</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+

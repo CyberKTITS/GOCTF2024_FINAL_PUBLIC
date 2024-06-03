@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Дневник боксера: {{ user.username }}</h1>
+
+<h2>Заметки</h2>
+<ul>
+    {% for note in notes %}
+    <li>{{ note.content }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Добавить новую заметку</h2>
+<form method="POST" action="{{ url_for('auth.add_note') }}">
+    <textarea name="content" placeholder="Введи текст" required></textarea>
+    <input type="submit" value="Добавить заметку">
+</form>
+{% endblock %}
+

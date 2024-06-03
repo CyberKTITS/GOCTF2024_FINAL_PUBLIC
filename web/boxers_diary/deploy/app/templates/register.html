@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="h-100 gradient-form" style="background-color: #343a40;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <h4 class="mt-1 mb-5 pb-1">Регистрация</h4>
+    
+                  {% if error %}
+                      <div class="alert alert-danger">{{ error }}</div>
+                  {% endif %}
+                <form action="{{ url_for('auth.register') }}" method="post">
+        
+                 <div class="text-center mb-3">
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="registerName" class="form-control" name="username" />
+                    <label class="form-label" for="registerName">Имя боксера</label>
+                  </div>
+
+              
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" id="registerPassword" class="form-control" name="password" />
+                    <label class="form-label" for="registerPassword">Пароль боксера (не больше 25 символов)</label>
+                  </div>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" id="registerRepeatPassword" class="form-control" name="confirm_password" />
+                    <label class="form-label" for="registerRepeatPassword">Повторите пароль</label>
+                  </div>
+
+                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Регистрация</button>
+
+                  <div class="text-center">
+                    <p>Уже зарегистрированы? <a href="{{ url_for('auth.login') }}" style="color: white; text-decoration: none;">Вход</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

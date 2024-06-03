@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", author="GregorHirsh">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <section id="content">
+        <form method="post">
+            <h1>Login Form</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <div>
+                <input type="text" name="username" placeholder="Username" required="" id="username" />
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" required="" id="password" />
+            </div>
+            <div>
+                <input type="submit" value="Log in" />
+                <a href="#">Lost your password?</a>
+                <a href="#">Register</a>
+            </div>
+        </form>
+    </section><!-- content -->
+</div><!-- container -->
+</body>
+</html>
+

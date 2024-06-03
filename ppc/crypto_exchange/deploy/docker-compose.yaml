@@ -1,0 +1,19 @@
+version: '3.8'
+
+name: 'crypto-exchange'
+
+services:
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8002:80"
+
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "5543:5173"

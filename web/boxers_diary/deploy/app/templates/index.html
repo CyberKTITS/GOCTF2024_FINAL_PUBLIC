@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+	    <h1 class="text-center text-white">Наши боксеры</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{ url_for('static', filename='muhammad.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Muhammad Ali</h5>
+          <p class="card-text">Muhammad Ali, бывший американский профессиональный боксер. Выступал в тяжелой весовой категории. Выиграл 56 боев, из них 37 нокаутом. Имел 5 поражений.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{ url_for('static', filename='myke.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Mike Tyson</h5>
+          <p class="card-text">Mike Tyson, бывший американский профессиональный боксер. Выступал в тяжелой весовой категории. Выиграл 50 боев, из них 44 нокаутом. Имел 6 поражений.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{ url_for('static', filename='floyd.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Floyd Mayweather Jr.</h5>
+          <p class="card-text">Floyd Mayweather Jr., американский профессиональный боксер. Выступал в легкой, легкой-полусредней, полусредней и средней весовых категориях. Выиграл 50 боев, из них 27 нокаутом. Не имеет поражений.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{ url_for('static', filename='sugar.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Sugar Ray Robinson</h5>
+          <p class="card-text">Sugar Ray Robinson, американский профессиональный боксер. Признан одним из величайших боксеров всех времен. Выиграл 173 боя, из них 108 нокаутом. Имел 19 поражений и 6 ничьих.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{ url_for('static', filename='joe.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Joe Louis</h5>
+          <p class="card-text">Joe Louis, американский профессиональный боксер. Был чемпионом мира в тяжелом весе. Выиграл 66 боев, из них 52 нокаутом. Имел 3 поражения.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img src="{{ url_for('static', filename='rocky.jpeg') }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Rocky Marciano</h5>
+          <p class="card-text">Rocky Marciano, американский профессиональный боксер. Был неоспоримым чемпионом мира в тяжелом весе. Выиграл все 49 боев, из них 43 нокаутом. Не имел поражений.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

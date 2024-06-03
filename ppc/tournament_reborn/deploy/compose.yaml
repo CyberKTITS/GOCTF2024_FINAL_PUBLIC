@@ -1,0 +1,8 @@
+version: '3'
+services:
+  tournament:
+    build: .
+    ports:
+      - 8081:8081
+    environment:
+      - FLAG=goctf{w0w_y0u_c4n_b347_4n07h3r_64m3_7h30ry_6uy}

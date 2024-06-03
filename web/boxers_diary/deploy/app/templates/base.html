@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник боксера</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #343a40;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <div class="nav-item me-3">
+                    <a class="nav-link" href="{{ url_for('main.index') }}">О нас&nbsp;&nbsp;</a>
+               	    
+          
+                    {% if session.get('user_id') %}
+                	<a class="nav-link" href="{{ url_for('auth.profile') }}">&nbsp;&nbsp;Профиль&nbsp;&nbsp;</a>
+        	        <a class="nav-link" href="{{ url_for('auth.logout') }}">&nbsp;&nbsp;Выход&nbsp;&nbsp;</a>
+	            {% else %}
+			<a class="nav-link" href="{{ url_for('auth.login') }}">&nbsp;&nbsp;Вход&nbsp;&nbsp;</a>
+		    {% endif %}
+                {% if session.get('isadmin') %}
+                
+		<a class="nav-link" href="{{ url_for('auth.deluser')  }}">&nbsp;&nbsp;Удалить Боксера&nbsp;&nbsp;</a>
+                
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

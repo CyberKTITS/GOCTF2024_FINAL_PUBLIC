@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bot scam</title>
+  <style>
+    * {
+      font-family: 'Arial', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    #content {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 800px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    p {
+      text-align: center;
+      color: #555;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.5em;
+      color: #fff;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    iframe {
+      display: block;
+      margin: 20px auto;
+      width: 90vw;
+      height: 800px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>bot scam</h1>
+    <p>Form for your text or no text.</p>
+    <form id="form">
+      <textarea id="code" placeholder="enter code here" rows="20" cols="80"></textarea>
+      <br>
+      <button id="submit">run</button>
+    </form>
+    <br>
+  </div>
+  <iframe id="sandbox" name="sandbox" sandbox></iframe>
+</body>
+<script>
+  function filterXSS(input) {
+    // мы сделали сайт безопасным к XSS
+    const dangerousTags = [
+        'script', 'iframe', 'object', 'embed', 'form', 'input',
+        'button', 'textarea', 'select', 'option', 'a', 'img', 'link', 'base',
+        'meta', 'svg', 'math', 'applet', 'basefont', 'bgsound', 'blink',
+        'body', 'head', 'frame', 'frameset', 'ilayer', 'layer', 'plaintext',
+        'title', 'xss'
+    ];
+    const lowerCaseInput = input.toLowerCase();
+    const regex = new RegExp(`<(?:${dangerousTags.join('|')})[^>]*>`, 'gi');
+    if (regex.test(input)) {
+        return 'Error';
+    }
+    
+    return input;
+  }
+
+  document.getElementById('form').onsubmit = e => {
+    e.preventDefault(); 
+    const code = filterXSS(document.getElementById('code').value);
+    const token = localStorage.getItem('token') ?? 'couldn`t pick up the flag';
+    const content = `<h1 token_data="${token}">${token}</h1>${code}`;
+    document.getElementById('sandbox').srcdoc = content;
+  }
+</script>
+</html>

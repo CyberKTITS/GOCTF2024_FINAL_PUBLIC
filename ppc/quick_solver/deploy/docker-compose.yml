@@ -1,0 +1,8 @@
+services:
+  quick_solver:
+    build: .
+    restart: always
+    ports:
+     - "1488:1488"
+    environment:
+      FLAG: goctf{w0w_y0u_c4n_50lv3_l50f_qu173_f457}

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  bot_scam:
+    image: bot_scam
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - FLAG=goctf{you_c4nt_h4ndle_th3_s0urc3}
+
