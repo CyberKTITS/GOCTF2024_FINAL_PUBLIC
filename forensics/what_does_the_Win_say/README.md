@@ -7,7 +7,7 @@
 Формат флага goctf{}
 
 ## Выдать участинкам
-Bin из директории [what_does_the_Win_say/]() 
+[What_does_the_Win_say](https://disk.yandex.ru/d/Y--2nU9jobl1ag) 
 
 ## Описание
 Анализ дампа памяти
